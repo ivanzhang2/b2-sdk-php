@@ -1,6 +1,5 @@
 [![GitHub License](https://img.shields.io/badge/license-MIT-yellow.svg)](https://raw.githubusercontent.com/dmhendricks/wordpress-base-plugin/master/LICENSE)
 [![Latest Version](https://img.shields.io/github/release/RunCloudIO/b2-sdk-php.svg)](https://github.com/RunCloudIO/b2-sdk-php/releases)
-[![Total Downloads](https://img.shields.io/packagist/dt/dmhendricks/b2-sdk-php.svg)](https://packagist.org/packages/dmhendricks/b2-sdk-php)
 [![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://paypal.me/danielhendricks)
 [![Build Status](https://img.shields.io/travis/cwhite92/b2-sdk-php.svg)](https://travis-ci.org/cwhite92/b2-sdk-php)
 [![WP Engine](https://f001.backblazeb2.com/file/hendricks/images/badge/wpengine.svg)](http://bit.ly/WPEnginePlans)
@@ -21,11 +20,25 @@ This is a new fork of the code and has not been extensively tested, so I have no
 
 ## Installation
 
-Install via Composer:
+#### Composer
 
-```bash
-$ composer require dmhendricks/b2-sdk-php
+Sadly, [Packagist](https://packagist.org) doesn't allow forks of existing packages. As such, you'll have to configure it as a [VCS repository](https://getcomposer.org/doc/05-repositories.md#vcs):
+
 ```
+{
+   "repositories": [
+       {
+          "type": "vcs",
+          "url": "https://github.com/dmhendricks/b2-sdk-php"
+       }
+   ],
+   "require": {
+       "dmhendricks/b2-sdk-php": "dev-master"
+   }
+}
+```
+
+If this fork becomes super-amazing for some reason, I will re-create and refactor it so that I may submit it.
 
 ## Usage Examples
 
