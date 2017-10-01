@@ -1,14 +1,26 @@
-## Backblaze B2 SDK for PHP
-[![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.md)
+[![GitHub License](https://img.shields.io/badge/license-MIT-yellow.svg)](https://raw.githubusercontent.com/dmhendricks/wordpress-base-plugin/master/LICENSE)
 [![Latest Version](https://img.shields.io/github/release/RunCloudIO/b2-sdk-php.svg?style=flat-square)](https://github.com/RunCloudIO/b2-sdk-php/releases)
-[![Build Status](https://img.shields.io/travis/cwhite92/b2-sdk-php.svg?style=flat-square)](https://travis-ci.org/cwhite92/b2-sdk-php)
+[![Total Downloads](https://img.shields.io/packagist/dt/dmhendricks/b2-sdk-php.svg)](https://packagist.org/packages/dmhendricks/b2-sdk-php)
+[![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://paypal.me/danielhendricks)
+[![Build Status](https://img.shields.io/travis/cwhite92/b2-sdk-php.svg)](https://travis-ci.org/cwhite92/b2-sdk-php)
+[![WP Engine](https://f001.backblazeb2.com/file/hendricks/images/badge/wpengine.svg)](http://bit.ly/WPEnginePlans)
+[![Twitter](https://img.shields.io/twitter/url/https/github.com/dmhendricks/wordpress-base-plugin.svg?style=social)](https://twitter.com/danielhendricks)
+
+# Backblaze B2 SDK for PHP
 
 `b2-sdk-php` is a client library for working with Backblaze's B2 storage service. It aims to make using the service as
 easy as possible by exposing a clear API and taking influence from other SDKs that you may be familiar with.
 
-## Example
+## Credits
 
-This is just a short example, full examples to come on the wiki.
+Forked from [RunCloudIO](https://github.com/RunCloudIO/b2-sdk-php), based on the original by [Chris White](https://github.com/cwhite92/b2-sdk-php).
+
+## Notes
+
+* This is a new fork of the code. I have not added it to Packagist yet, nor have a created a release. This will happen soon. **For now, if you are looking for a release version, I recommend the latest [RunCloudIO release](https://github.com/RunCloudIO/b2-sdk-php/releases).**
+* I would like to incorporate some of the improvements from various other forks.
+
+## Usage Examples
 
 ```php
 use ChrisWhite\B2\Client;
@@ -84,10 +96,10 @@ $fileList = $client->listFiles([
 
 ## Installation
 
-Installation is via Composer:
+Install via Composer:
 
 ```bash
-$ composer require runcloudio/b2-sdk-php
+$ composer require dmhendricks/b2-sdk-php
 ```
 
 ## Tests
