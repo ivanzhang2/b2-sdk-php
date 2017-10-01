@@ -1,5 +1,5 @@
 [![GitHub License](https://img.shields.io/badge/license-MIT-yellow.svg)](https://raw.githubusercontent.com/dmhendricks/wordpress-base-plugin/master/LICENSE)
-[![Latest Version](https://img.shields.io/github/release/RunCloudIO/b2-sdk-php.svg?style=flat-square)](https://github.com/RunCloudIO/b2-sdk-php/releases)
+[![Latest Version](https://img.shields.io/github/release/RunCloudIO/b2-sdk-php.svg)](https://github.com/RunCloudIO/b2-sdk-php/releases)
 [![Total Downloads](https://img.shields.io/packagist/dt/dmhendricks/b2-sdk-php.svg)](https://packagist.org/packages/dmhendricks/b2-sdk-php)
 [![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://paypal.me/danielhendricks)
 [![Build Status](https://img.shields.io/travis/cwhite92/b2-sdk-php.svg)](https://travis-ci.org/cwhite92/b2-sdk-php)
@@ -11,14 +11,21 @@
 `b2-sdk-php` is a client library for working with Backblaze's B2 storage service. It aims to make using the service as
 easy as possible by exposing a clear API and taking influence from other SDKs that you may be familiar with.
 
-## Credits
+### Credits
 
 Forked from [RunCloudIO](https://github.com/RunCloudIO/b2-sdk-php), based on the original by [Chris White](https://github.com/cwhite92/b2-sdk-php).
 
-## Notes
+### Release Status
 
-* This is a new fork of the code. I have not added it to Packagist yet, nor have a created a release. This will happen soon. **For now, if you are looking for a release version, I recommend the latest [RunCloudIO release](https://github.com/RunCloudIO/b2-sdk-php/releases).**
-* I would like to incorporate some of the improvements from various other forks.
+This is a new fork of the code and has not been extensively tested, so I have not yet created a release. **If you are looking for a release version, I recommend the latest from [RunCloudIO](https://github.com/RunCloudIO/b2-sdk-php/releases).**
+
+## Installation
+
+Install via Composer:
+
+```bash
+$ composer require dmhendricks/b2-sdk-php
+```
 
 ## Usage Examples
 
@@ -92,14 +99,22 @@ $fileDelete = $client->deleteFile([
 $fileList = $client->listFiles([
     'BucketId' => '4d2dbbe08e1e983c5e6f0d12'
 ]);
-```
 
-## Installation
-
-Install via Composer:
-
-```bash
-$ composer require dmhendricks/b2-sdk-php
+/*
+ * Retrieve file versions from a bucket. Returns array. Optional parameters:
+ *    StartFileName - The first file name to return.
+ *    StartFileId - The first file ID to return. startFileName must also be
+ *        provided if startFileId is specified.
+ *    MaxFileCount - The maximum number of files to return.
+ *    Prefix - Files returned will be limited to those with the given prefix.
+ *        Defaults to the empty string, which matches all files.
+ *    Delimiter - The delimiter character will be used to "break" file names
+ *        into folders.
+ * @see https://www.backblaze.com/b2/docs/b2_list_file_versions.html
+ */
+$fileVersions = $client->listFileVersions([
+    'BucketId' => '4d2dbbe08e1e983c5e6f0d12',
+]);
 ```
 
 ## Tests
@@ -109,3 +124,12 @@ Tests are run with PHPUnit. After installing PHPUnit via Composer:
 ```bash
 $ vendor/bin/phpunit
 ```
+
+## Change Log
+
+Release changes are noted on the [Releases](https://github.com/dmhendricks/b2-sdk-php/releases) page.
+
+#### Branch: `master`
+
+* Added Client->getDownloadUrl()
+* Added Client->listFileVersions() (thanks [ryanall](https://github.com/ryanall/b2-sdk-php))
