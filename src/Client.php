@@ -218,7 +218,7 @@ class Client
                 $options['BucketName'] = $this->getBucketNameFromId($options['BucketId']);
             }
 
-            $requestUrl = sprintf('%s/file/%s/%s', $this->downloadUrl, $options['BucketName'], $options['FileName']);
+            $requestUrl = $this->getDownloadUrl( $options );
         }
 
         if (isset($options['stream'])) {
@@ -229,6 +229,19 @@ class Client
         }
 
         return isset($options['SaveAs']) ? true : $response;
+    }
+
+    /**
+     * Returns the base URL for uploaded files
+     *
+     * @param array $options
+     * @return string
+     * @since 1.3.3
+     */
+    public function getDownloadUrl( array $options = array() )
+    {
+      $downloadUrl = sprintf('%s/file/%s/%s', $this->downloadUrl, $options['BucketName'] ?: '', $options['FileName'] ?: '');
+      return rtrim( $downloadUrl, '/' );
     }
 
     /**
