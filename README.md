@@ -1,7 +1,6 @@
 ## Backblaze B2 SDK for PHP
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.md)
-[![Latest Version](https://img.shields.io/github/release/cwhite92/b2-sdk-php.svg?style=flat-square)](https://github.com/cwhite92/b2-sdk-php/releases)
-[![SensioLabs Rating](https://img.shields.io/sensiolabs/i/d5e44d75-84d2-40c7-b0d4-7f628429e139.svg?style=flat-square)](https://insight.sensiolabs.com/projects/d5e44d75-84d2-40c7-b0d4-7f628429e139)
+[![Latest Version](https://img.shields.io/github/release/RunCloudIO/b2-sdk-php.svg?style=flat-square)](https://github.com/RunCloudIO/b2-sdk-php/releases)
 [![Build Status](https://img.shields.io/travis/cwhite92/b2-sdk-php.svg?style=flat-square)](https://travis-ci.org/cwhite92/b2-sdk-php)
 
 `b2-sdk-php` is a client library for working with Backblaze's B2 storage service. It aims to make using the service as
@@ -16,6 +15,15 @@ use ChrisWhite\B2\Client;
 use ChrisWhite\B2\Bucket;
 
 $client = new Client('accountId', 'applicationKey');
+
+// Returns the base B2 file URL
+$client->getDownloadUrl();
+
+// Returns the provided bucket/file prefixed with the B2 base URL
+$client->getDownloadUrl([
+    'BucketName' => 'my-special-bucket',
+    'FileName' => 'path/to/file'
+]);
 
 // Returns a Bucket object.
 $bucket = $client->createBucket([
@@ -62,7 +70,7 @@ $fileContent = $client->download([
 // Delete a file from a bucket. Returns true or false.
 $fileDelete = $client->deleteFile([
     'FileId' => $file->getId()
-    
+
     // Can also identify the file via bucket and path:
     // 'BucketName' => 'my-special-bucket',
     // 'FileName' => 'path/to/file'
@@ -89,11 +97,3 @@ Tests are run with PHPUnit. After installing PHPUnit via Composer:
 ```bash
 $ vendor/bin/phpunit
 ```
-
-## Contributors
-
-Feel free to contribute in any way you can whether that be reporting issues, making suggestions or sending PRs. :)
-
-## License
-
-MIT.
