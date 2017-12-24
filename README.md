@@ -1,5 +1,5 @@
 [![GitHub License](https://img.shields.io/badge/license-MIT-yellow.svg)](https://raw.githubusercontent.com/dmhendricks/wordpress-base-plugin/master/LICENSE)
-[![Latest Version](https://img.shields.io/github/release/RunCloudIO/b2-sdk-php.svg)](https://github.com/RunCloudIO/b2-sdk-php/releases)
+[![Latest Version](https://img.shields.io/github/release/dmhendricks/b2-sdk-php.svg)](https://github.com/dmhendricks/b2-sdk-php/releases)
 [![Packagist](https://img.shields.io/packagist/v/dmhendricks/b2-sdk-php.svg)](https://packagist.org/packages/dmhendricks/b2-sdk-php)
 [![Build Status](https://img.shields.io/travis/cwhite92/b2-sdk-php.svg)](https://travis-ci.org/cwhite92/b2-sdk-php)
 [![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://paypal.me/danielhendricks)
