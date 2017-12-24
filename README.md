@@ -1,7 +1,8 @@
 [![GitHub License](https://img.shields.io/badge/license-MIT-yellow.svg)](https://raw.githubusercontent.com/dmhendricks/wordpress-base-plugin/master/LICENSE)
 [![Latest Version](https://img.shields.io/github/release/RunCloudIO/b2-sdk-php.svg)](https://github.com/RunCloudIO/b2-sdk-php/releases)
-[![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://paypal.me/danielhendricks)
+[![Packagist](https://img.shields.io/packagist/v/dmhendricks/b2-sdk-php.svg)](https://packagist.org/packages/dmhendricks/b2-sdk-php)
 [![Build Status](https://img.shields.io/travis/cwhite92/b2-sdk-php.svg)](https://travis-ci.org/cwhite92/b2-sdk-php)
+[![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://paypal.me/danielhendricks)
 [![WP Engine](https://f001.backblazeb2.com/file/hendricks/images/badge/wpengine.svg)](http://bit.ly/WPEnginePlans)
 [![Twitter](https://img.shields.io/twitter/url/https/github.com/dmhendricks/wordpress-base-plugin.svg?style=social)](https://twitter.com/danielhendricks)
 
@@ -10,37 +11,22 @@
 `b2-sdk-php` is a client library for working with Backblaze's B2 storage service. It aims to make using the service as
 easy as possible by exposing a clear API and taking influence from other SDKs that you may be familiar with.
 
-This package will **cache authorization request** for 1 hour so that you won't receive API Limit from B2.
+Authorization requests will be cached for 1 hour to avoid hitting the B2 API limit.
 
-### Credits
+### History & Changes
 
-Forked from [RunCloudIO](https://github.com/RunCloudIO/b2-sdk-php), based on the original by [Chris White](https://github.com/cwhite92/b2-sdk-php).
+This is a fork of the [RunCloudIO](https://github.com/RunCloudIO/b2-sdk-php) version, based on the original by [Chris White](https://github.com/cwhite92/b2-sdk-php),  with the following changes:
 
-### Release Status
-
-This is a new fork of the code and has not been extensively tested, so I have not yet created a release. **If you are looking for a release version, I recommend the latest from [RunCloudIO](https://github.com/RunCloudIO/b2-sdk-php/releases).**
+- Implemented support for [b2_list_file_versions](https://www.backblaze.com/b2/docs/b2_list_file_versions.html) from [ryanall](https://github.com/ryanall/b2-sdk-php/commit/4c3f5274e7ee2b72ad847dc2ebc3178ac71545d2) fork.
+- `Client->download()` returns null on failure rather than invalid path.
 
 ## Installation
 
-#### Composer
-
-Sadly, [Packagist](https://packagist.org) doesn't allow forks of existing packages. As such, you'll have to configure it as a [VCS repository](https://getcomposer.org/doc/05-repositories.md#vcs):
+To install via Composer:
 
 ```
-{
-   "repositories": [
-       {
-          "type": "vcs",
-          "url": "https://github.com/dmhendricks/b2-sdk-php"
-       }
-   ],
-   "require": {
-       "dmhendricks/b2-sdk-php": "dev-master"
-   }
-}
+composer require dmhendricks/b2-sdk-php
 ```
-
-If this fork becomes super-amazing for some reason, I will re-create and refactor it so that I may submit it.
 
 ## Usage Examples
 
@@ -146,5 +132,4 @@ Release changes are noted on the [Releases](https://github.com/dmhendricks/b2-sd
 
 #### Branch: `master`
 
-* Added Client->getDownloadUrl()
-* Added Client->listFileVersions() (thanks [ryanall](https://github.com/ryanall/b2-sdk-php))
+* None
